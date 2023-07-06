@@ -1,7 +1,6 @@
 # ACCES A LA PARTIE ADMINISTRATIVE DU SITE
 ## Comment se connecter en tant qu'admin :
 
-### 1
 - Installer la base de donnée.
 - Ajouter "/connexion" a la fin de l'URL pour accéder au formulaire de connexion.
 
