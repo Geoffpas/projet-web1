@@ -1,0 +1,978 @@
+html {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-size: 15px;
+  line-height: 1.5;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+html a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.msg {
+  padding: 0.5em 1em;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.msg.erreur {
+  background-color: lightcoral;
+  color: darkred;
+}
+.msg.succes {
+  background-color: lightgreen;
+  color: green;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+[v-cloak] {
+  display: none;
+}
+
+header {
+  background-image: url(../img/repas/burger/burger_degrade.jpg);
+  background-size: cover;
+  background-position: bottom;
+  height: 100vh;
+  position: relative;
+}
+header .banniere {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 130px;
+  position: relative;
+}
+header .banniere .logo {
+  display: flex;
+  align-items: center;
+}
+header .banniere .logo img {
+  width: 200px;
+}
+header .banniere .menu-nav {
+  display: flex;
+  flex-direction: column;
+}
+header .banniere .menu-nav .contact {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+header .banniere .menu-nav .contact .telephone {
+  display: flex;
+  align-items: center;
+}
+header .banniere .menu-nav .contact .telephone .material-icons-outlined {
+  margin-right: 5px;
+}
+header .banniere .menu-nav .contact .adresse {
+  display: flex;
+  align-items: center;
+}
+header .banniere .menu-nav .contact .adresse .material-icons-outlined {
+  margin-right: 5px;
+}
+header .banniere .menu-nav .contact .adresse a {
+  text-decoration: none;
+  color: white;
+}
+header .banniere .menu-nav .contact .adresse a:hover {
+  color: #B4B41D;
+}
+header .banniere .menu-nav nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  text-transform: uppercase;
+}
+header .banniere .menu-nav nav ul li {
+  margin-left: 100px;
+}
+header .banniere .menu-nav nav ul li a {
+  text-decoration: none;
+  color: white;
+}
+header .banniere .menu-nav nav ul li a:hover {
+  color: #B4B41D;
+}
+header .conteneur-heading {
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  text-align: center;
+  width: 100%;
+}
+header .conteneur-heading .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+header .conteneur-heading .heading .titre-site {
+  text-transform: uppercase;
+  letter-spacing: 10px;
+}
+header .conteneur-heading .heading h1 {
+  text-transform: uppercase;
+  font-size: 60px;
+  font-weight: 400;
+}
+header .conteneur-heading .heading .suite-h1 {
+  text-transform: uppercase;
+  letter-spacing: 15px;
+  font-size: 40px;
+  font-weight: 300;
+}
+header .conteneur-heading .boutons-heading {
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+header .conteneur-heading .boutons-heading a {
+  border: 1px solid white;
+  padding: 20px;
+}
+header .conteneur-heading .boutons-heading a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+header .conteneur-heading .boutons-heading .bt-menu {
+  display: flex;
+  margin-right: 6px;
+}
+header .conteneur-heading .boutons-heading .bt-entreprise {
+  display: flex;
+}
+header .commentaires-bg {
+  width: 100%;
+  display: flex;
+  height: 40px;
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  justify-content: center;
+}
+header .commentaires-bg .commentaires {
+  position: relative;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.1em;
+  opacity: 0;
+  animation: fadeIn 1s ease-in-out forwards;
+}
+header .commentaires-bg .commentaires p {
+  margin-right: 40px;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.conteneur-choix {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 100px 0;
+}
+.conteneur-choix .choix-entrees, .conteneur-choix .choix-plats, .conteneur-choix .choix-desserts {
+  width: 618px;
+  height: 618px;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.conteneur-choix .choix-entrees .cadre-entrees, .conteneur-choix .choix-entrees .cadre-plats, .conteneur-choix .choix-entrees .cadre-desserts, .conteneur-choix .choix-plats .cadre-entrees, .conteneur-choix .choix-plats .cadre-plats, .conteneur-choix .choix-plats .cadre-desserts, .conteneur-choix .choix-desserts .cadre-entrees, .conteneur-choix .choix-desserts .cadre-plats, .conteneur-choix .choix-desserts .cadre-desserts {
+  width: 570px;
+  height: 570px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 2px solid transparent;
+  transition: border 0.5s;
+}
+.conteneur-choix .choix-entrees .cadre-entrees h2, .conteneur-choix .choix-entrees .cadre-plats h2, .conteneur-choix .choix-entrees .cadre-desserts h2, .conteneur-choix .choix-plats .cadre-entrees h2, .conteneur-choix .choix-plats .cadre-plats h2, .conteneur-choix .choix-plats .cadre-desserts h2, .conteneur-choix .choix-desserts .cadre-entrees h2, .conteneur-choix .choix-desserts .cadre-plats h2, .conteneur-choix .choix-desserts .cadre-desserts h2 {
+  font-weight: 400;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+.conteneur-choix .choix-entrees .cadre-entrees span, .conteneur-choix .choix-entrees .cadre-plats span, .conteneur-choix .choix-entrees .cadre-desserts span, .conteneur-choix .choix-plats .cadre-entrees span, .conteneur-choix .choix-plats .cadre-plats span, .conteneur-choix .choix-plats .cadre-desserts span, .conteneur-choix .choix-desserts .cadre-entrees span, .conteneur-choix .choix-desserts .cadre-plats span, .conteneur-choix .choix-desserts .cadre-desserts span {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20px;
+  text-transform: uppercase;
+  font-size: 0.8em;
+  letter-spacing: 0.1em;
+  background-color: transparent;
+  transition: background-color 0.5s, color 0.5s;
+}
+.conteneur-choix .choix-entrees .cadre-entrees:hover, .conteneur-choix .choix-entrees .cadre-plats:hover, .conteneur-choix .choix-entrees .cadre-desserts:hover, .conteneur-choix .choix-plats .cadre-entrees:hover, .conteneur-choix .choix-plats .cadre-plats:hover, .conteneur-choix .choix-plats .cadre-desserts:hover, .conteneur-choix .choix-desserts .cadre-entrees:hover, .conteneur-choix .choix-desserts .cadre-plats:hover, .conteneur-choix .choix-desserts .cadre-desserts:hover {
+  border: 2px solid rgb(255, 255, 255);
+}
+.conteneur-choix .choix-entrees .cadre-entrees:hover span, .conteneur-choix .choix-entrees .cadre-plats:hover span, .conteneur-choix .choix-entrees .cadre-desserts:hover span, .conteneur-choix .choix-plats .cadre-entrees:hover span, .conteneur-choix .choix-plats .cadre-plats:hover span, .conteneur-choix .choix-plats .cadre-desserts:hover span, .conteneur-choix .choix-desserts .cadre-entrees:hover span, .conteneur-choix .choix-desserts .cadre-plats:hover span, .conteneur-choix .choix-desserts .cadre-desserts:hover span {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+.conteneur-choix .choix-entrees {
+  background-image: url(../img/entree/potage.jpg);
+}
+.conteneur-choix .choix-plats {
+  background-image: url(../img/repas/tartares/tartare.jpg);
+}
+.conteneur-choix .choix-desserts {
+  background-image: url(../img/dessert/dessert1.jpg);
+}
+
+.conteneur-entreprise {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+.conteneur-entreprise #histoire {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  width: 50%;
+  line-height: 2em;
+}
+.conteneur-entreprise #histoire h1 {
+  font-size: 2em;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.conteneur-entreprise #histoire .paragraphes {
+  font-weight: 300;
+  text-align: justify;
+}
+.conteneur-entreprise #histoire .bt-visitez {
+  display: flex;
+  margin-top: 2rem;
+  text-transform: uppercase;
+}
+.conteneur-entreprise #histoire .bt-visitez a {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20px;
+  letter-spacing: 0.1em;
+}
+.conteneur-entreprise #histoire .bt-visitez a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.conteneur-entreprise .image-histoire {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  width: 50%;
+  position: relative;
+}
+.conteneur-entreprise .image-histoire img {
+  height: 90%;
+  width: 90%;
+}
+
+.conteneur-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 100px;
+}
+.conteneur-contact h4 {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.conteneur-contact hr.separateur {
+  margin: 20px auto;
+  width: 85px;
+  border-top: 1px solid rgb(255, 255, 255);
+}
+.conteneur-contact form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.conteneur-contact form input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  margin-right: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.conteneur-contact form textarea {
+  width: 624px;
+  height: 200px;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-transform: uppercase;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  letter-spacing: 0.1em;
+}
+.conteneur-contact form a {
+  border: 1px solid rgb(255, 255, 255);
+  padding: 20px;
+  margin-top: 10px;
+  width: 120px;
+  text-transform: uppercase;
+}
+.conteneur-contact form a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+
+.conteneur-map {
+  width: 100vw;
+  height: 300px;
+  margin-top: 10rem;
+}
+
+.map {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+.map img {
+  height: auto;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+footer {
+  background-color: black;
+  color: rgb(255, 255, 255);
+  padding: 80px 130px;
+}
+footer .conteneur-footer {
+  display: flex;
+  align-items: center;
+}
+footer .conteneur-footer .logo {
+  display: flex;
+  align-items: center;
+}
+footer .conteneur-footer .logo img {
+  width: 200px;
+  display: flex;
+  align-items: center;
+}
+footer .conteneur-footer nav ul {
+  display: flex;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+footer .conteneur-footer nav ul li {
+  margin: 5px;
+}
+footer .conteneur-footer nav ul li a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+footer .conteneur-footer nav ul li a:hover {
+  color: #B4B41D;
+}
+footer .conteneur-footer .contact-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-left: auto;
+}
+footer .conteneur-footer .telephone {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+footer .conteneur-footer .telephone .material-icons-outlined {
+  margin-right: 5px;
+}
+footer .conteneur-footer .adresse-footer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+footer .conteneur-footer .adresse-footer .material-icons-outlined {
+  margin-right: 5px;
+}
+footer .conteneur-footer .adresse-footer a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+footer .conteneur-footer .adresse-footer a:hover {
+  color: #B4B41D;
+}
+footer .conteneur-footer .media-footer {
+  display: flex;
+  justify-content: center;
+}
+footer .conteneur-footer .media-footer a {
+  display: inline-block;
+  margin: 10px;
+}
+footer .conteneur-footer .media-footer a img {
+  width: 30px;
+}
+footer .conteneur-footer .infolettre {
+  margin-left: auto;
+}
+footer .conteneur-footer .infolettre h4 {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+  text-align: center;
+  margin-bottom: 10px;
+}
+footer .conteneur-footer .infolettre form {
+  display: flex;
+  flex-direction: column;
+}
+footer .conteneur-footer .infolettre input {
+  width: 290px;
+  height: 40px;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  padding-left: 10px;
+  margin-top: 3px;
+}
+footer .conteneur-footer .infolettre input[type=submit] {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+  margin-top: 10px;
+  width: 100px;
+  padding-left: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+footer .conteneur-footer .infolettre input[type=submit]:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+
+header.menu {
+  background-image: none;
+  height: auto;
+}
+
+.conteneur-menu {
+  position: relative;
+  margin-top: 10rem;
+  margin-bottom: 10rem;
+  text-transform: uppercase;
+}
+.conteneur-menu .btn-admin {
+  display: flex;
+  flex-direction: column;
+}
+.conteneur-menu .btn-admin a {
+  display: flex;
+  border: 1px solid white;
+  padding: 20px;
+  width: 250px;
+  margin-top: 5px;
+}
+.conteneur-menu .btn-admin a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.conteneur-menu .btn-admin span {
+  margin-right: 10px;
+}
+.conteneur-menu h1 {
+  text-align: center;
+  font-size: 60px;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+}
+.conteneur-menu h2 {
+  margin-top: 100px;
+  font-weight: 600;
+  font-size: 2em;
+  letter-spacing: 0.2em;
+}
+.conteneur-menu h4 {
+  margin-top: 20px;
+  font-size: 1.2em;
+  letter-spacing: 0.2em;
+}
+.conteneur-menu .menu {
+  margin: 0px 100px;
+  max-width: 1200px;
+}
+.conteneur-menu p {
+  font-size: 0.9em;
+}
+.conteneur-menu .prix {
+  font-size: 1.2em;
+  color: #B4B41D;
+}
+.conteneur-menu hr.separateur {
+  width: 150px;
+  margin: 0;
+  border: none;
+  border-top: 3px solid rgb(255, 255, 255);
+  margin-top: 30px;
+  margin-bottom: 80px;
+}
+.conteneur-menu .admin-icons span:hover {
+  color: #B4B41D;
+}
+.conteneur-menu .image-column {
+  position: absolute;
+  right: 100px;
+  top: 370px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  justify-items: end;
+  z-index: -1;
+}
+.conteneur-menu .image-column div {
+  width: 577px;
+  height: 386px;
+  background-size: cover;
+  background-position: center;
+}
+.conteneur-menu .image-column #entrees-image1 {
+  background-image: url(../img/degrades/ailes_degrade.jpg);
+}
+.conteneur-menu .image-column #entrees-image2 {
+  background-image: url(../img/degrades/calamar_degrade.jpg);
+}
+.conteneur-menu .image-column #plats-image1 {
+  background-image: url(../img/degrades/burger3_degrade.jpg);
+}
+.conteneur-menu .image-column #plats-image2 {
+  background-image: url(../img/degrades/salade_degrade.jpg);
+}
+.conteneur-menu .image-column #plats-image3 {
+  background-image: url(../img/degrades/viande_degrade.jpg);
+}
+.conteneur-menu .image-column #desserts-image {
+  background-image: url(../img/degrades/dessert1_degrade.jpg);
+}
+
+.connexion {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin: 100px auto 0;
+  width: 400px;
+  text-align: center;
+  padding: 80px;
+  border-radius: 20px;
+}
+.connexion .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.connexion .logo img {
+  width: 200px;
+}
+
+.formulaire-connexion {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.formulaire-connexion form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.formulaire-connexion form input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.formulaire-connexion form input[type=submit] {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  cursor: pointer;
+}
+.formulaire-connexion form input[type=submit]:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+
+.compte-creer {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin: 100px auto 0;
+  width: 400px;
+  text-align: center;
+  padding: 80px;
+  border-radius: 20px;
+}
+.compte-creer .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compte-creer .logo img {
+  width: 200px;
+}
+
+.formulaire-compte {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.formulaire-compte form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.formulaire-compte form h3 {
+  margin-bottom: 20px;
+}
+.formulaire-compte form input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.formulaire-compte form input[type=submit] {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  cursor: pointer;
+}
+.formulaire-compte form input[type=submit]:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.formulaire-compte form a {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  padding: 10px 0;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+}
+.formulaire-compte form a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+
+.menu-creer {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin: 100px auto 0;
+  width: 400px;
+  text-align: center;
+  padding: 80px;
+  border-radius: 20px;
+}
+.menu-creer .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-creer .logo img {
+  width: 200px;
+}
+
+.formulaire-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.formulaire-menu form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.formulaire-menu form h3 {
+  margin-bottom: 20px;
+}
+.formulaire-menu form input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.formulaire-menu form input[type=submit] {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  cursor: pointer;
+}
+.formulaire-menu form input[type=submit]:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.formulaire-menu form a {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  padding: 10px 0;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+}
+.formulaire-menu form a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+
+.menu-modifier {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin: 100px auto 0;
+  width: 400px;
+  text-align: center;
+  padding: 80px;
+  border-radius: 20px;
+}
+.menu-modifier h1 {
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.menu-modifier .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-modifier .logo img {
+  width: 200px;
+}
+
+.formulaire-modifier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.formulaire-modifier form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.formulaire-modifier form h3 {
+  margin-bottom: 20px;
+}
+.formulaire-modifier form input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.formulaire-modifier form input[type=submit] {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  cursor: pointer;
+}
+.formulaire-modifier form input[type=submit]:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.formulaire-modifier form a {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  padding: 10px 0;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+}
+.formulaire-modifier form a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+
+.compte {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin: 100px auto 0;
+  width: 400px;
+  text-align: center;
+  padding: 80px;
+  border-radius: 20px;
+}
+.compte h1 {
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.compte .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compte .logo img {
+  width: 200px;
+}
+
+.btn-admin {
+  display: flex;
+  flex-direction: column;
+}
+.btn-admin a {
+  display: flex;
+  border: 1px solid white;
+  padding: 7px;
+  width: 250px;
+  margin-top: 5px;
+}
+.btn-admin a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.btn-admin span {
+  margin-right: 10px;
+}
+
+table {
+  margin-top: 20px;
+}
+table td {
+  text-align: left;
+}
+table td .nom {
+  margin-right: 20px;
+}
+
+.compte-modifier {
+  box-shadow: 0 0 30px rgb(255, 255, 255);
+  margin: 100px auto 0;
+  width: 400px;
+  text-align: center;
+  padding: 80px;
+  border-radius: 20px;
+}
+.compte-modifier h1 {
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+.compte-modifier .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.compte-modifier .logo img {
+  width: 200px;
+}
+
+.formulaire-modifier {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+.formulaire-modifier form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 40px;
+}
+.formulaire-modifier form h3 {
+  margin-bottom: 20px;
+}
+.formulaire-modifier form input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
+}
+.formulaire-modifier form input[type=submit] {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  cursor: pointer;
+}
+.formulaire-modifier form input[type=submit]:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}
+.formulaire-modifier form a {
+  border: 1px solid rgb(255, 255, 255);
+  background-color: black;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  width: 120px;
+  padding: 10px 0;
+  letter-spacing: 0.1em;
+  font-size: 0.9em;
+}
+.formulaire-modifier form a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+  transition: 0.5s;
+}/*# sourceMappingURL=style.css.map */
