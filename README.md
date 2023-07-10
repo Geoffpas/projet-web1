@@ -1,3 +1,5 @@
+LIVE DEMO : http://0479854.cpsw-fcsei.com/projetweb1/
+
 # ACCES A LA PARTIE ADMINISTRATIVE DU SITE
 ## Comment se connecter en tant qu'admin :
 
@@ -14,3 +16,5 @@
     - MOT DE PASSE : 1234
 
 ![](./projet1.PNG)
+![](./projet2.PNG)
+![](./projet3.PNG)
