@@ -4,6 +4,7 @@ LIVE DEMO : http://0479854.cpsw-fcsei.com/projetweb1/
 ## Comment se connecter en tant qu'admin :
 
 - Installer la base de donnée.
+- Créez une BDD vide et importez le script fourni.
 - Ajouter "/connexion" a la fin de l'URL pour accéder au formulaire de connexion.
 
 ### LES COMPTES
