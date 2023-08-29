@@ -1,5 +1,7 @@
 LIVE DEMO : http://0479854.cpsw-fcsei.com/projetweb1/
 
+<p align="center"><a href="http://0479854.cpsw-fcsei.com/projetweb1/" target="_blank"></a>LIVE DEMO</p>
+
 # ACCES A LA PARTIE ADMINISTRATIVE DU SITE
 ## Comment se connecter en tant qu'admin :
 
